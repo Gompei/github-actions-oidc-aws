@@ -25,4 +25,4 @@ jobs:
 
       # バケット名は各自で作成した名前に変更してください
       - name: upload file
-        run: aws s3 cp upload_code/after/index.html s3://example-github-actions-oidc-aws-buckets
+        run: aws s3 cp upload_code/after/index.html s3://example-github-actions-oidc-aws-bucket
