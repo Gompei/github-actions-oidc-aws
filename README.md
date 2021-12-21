@@ -9,3 +9,5 @@ AWS・Github Actions OIDC連携
 ![diagram](./diagram.png)
 
 ## 記事
+
+- [AWS Github Actions OIDC連携](https://gom60.com/article/3)
