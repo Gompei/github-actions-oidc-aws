@@ -1,0 +1,28 @@
+name: upload html file
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload_file:
+    runs-on: ubuntu-latest
+    name: upload html file
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@master
+        with:
+          aws-region: ap-northeast-1
+          role-to-assume: ${{ secrets.AWS_ASSUME_ROLE_ARN }}
+          role-session-name: github-actions-session
+
+      # バケット名は各自で作成した名前に変更してください
+      - name: upload file
+        run: aws s3 cp upload_code/after/index.html s3://example-github-actions-oidc-aws-buckets
